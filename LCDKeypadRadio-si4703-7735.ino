@@ -36,8 +36,8 @@
 /// * 22.03.2015 Copying to LCDKeypadRadio.
 
 
-#include <Adafruit_GFX.h>    // Core graphics library
-#include <Adafruit_ST7735.h> // Hardware-specific library for ST7735
+#include <Adafruit_GFX.h>    // https://github.com/adafruit/Adafruit-GFX-Library
+#include <Adafruit_ST7735.h> // https://github.com/adafruit/Adafruit-ST7735-Library
 #include <SPI.h>
 #include <Wire.h>
 
@@ -45,7 +45,7 @@
 
 #include <SI4703.h>
 
-#include <Fonts/FreeSerif9pt7b.h>
+#include <Fonts/FreeSerif9pt7b.h> //https://learn.adafruit.com/adafruit-gfx-graphics-library/using-fonts
 #include <Fonts/FreeSerif24pt7b.h>
 #include <RDSParser.h>
 
@@ -129,9 +129,9 @@ void DisplayFrequency(RADIO_FREQ f)
  if(a!=pa){
   pa=a;
    tft.fillRect(0,14,105,35,ST77XX_BLACK); 
-  tft.setFont(&FreeSerif24pt7b);
+  tft.setFont(&FreeSerif24pt7b); //https://learn.adafruit.com/adafruit-gfx-graphics-library/using-fonts
   tft.setCursor(0, 45);tft.setTextColor(ST77XX_CYAN,ST77XX_BLACK); tft.print(a/100,1);
-  tft.setFont();
+  tft.setFont(); //https://learn.adafruit.com/adafruit-gfx-graphics-library/using-fonts
  }
 
   
@@ -152,6 +152,7 @@ void DisplayServiceName(char *name)
   } // while
 } // DisplayServiceName()
 
+// partea asta nu functioneaza corespunzator, nu am gasit nici un post radio cu ora reglata
 
 /// This function will be called by the RDS module when a rds time message was received.
 /// Update the LCD to display the time in right upper corner.
@@ -294,7 +295,7 @@ tft.setFont();
   // setup the information chain for RDS data.
   radio.attachReceiveRDS(RDS_process);
   rds.attachServicenNameCallback(DisplayServiceName);
-  //rds.attachTimeCallback(DisplayTime);
+  //rds.attachTimeCallback(DisplayTime); // partea asta nu functioneaza corespunzator, nu am gasit nici un post radio cu ora reglata
 } // Setup
 
 
