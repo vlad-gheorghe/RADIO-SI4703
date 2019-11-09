@@ -24,8 +24,9 @@
 ///           A5 | SCLK          | 
 ///           A4 | SDIO          | 
 ///           D2 | RST           |
-///
-///
+/// foR TFT
+///MOSI = pin 11 and
+// SCLK = pin 13.
 /// More documentation and source code is available at http://www.mathertel.de/Arduino
 ///
 /// History:
